@@ -18,3 +18,8 @@ var countGoodTriplets = function(arr, a, b, c) {
   return triplets;
 }
 
+1491. Average Salary Excluding the Minimum and Maximum Salary
+var average = function (salary) {
+    const sum = salary.reduce((a, b) => a + b);
+    return (sum - Math.max(...salary) - Math.min(...salary)) / (salary.length - 2);
+};
