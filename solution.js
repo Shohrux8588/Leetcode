@@ -23,3 +23,15 @@ var average = function (salary) {
     const sum = salary.reduce((a, b) => a + b);
     return (sum - Math.max(...salary) - Math.min(...salary)) / (salary.length - 2);
 };
+
+657. Robot Return to Origin
+var judgeCircle = function (m) {
+    const moves = { "U": [0, 1], "D": [0, -1], "L": [-1, 0], "R": [1, 0] };
+    const coordinates = [...m].map(move => moves[move]);
+    const result = coordinates.reduce((sum, coordinate) => {
+        sum[0] += coordinate[0];
+        sum[1] += coordinate[1];
+        return sum;
+    }, [0, 0]);
+    return result[0] === 0 && result[1] === 0;
+};
