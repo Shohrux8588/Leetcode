@@ -35,3 +35,13 @@ var judgeCircle = function (m) {
     }, [0, 0]);
     return result[0] === 0 && result[1] === 0;
 };
+
+268. Missing Number
+var missingNumber = function(nums) {
+    const max = Math.max(...nums) + 1;
+    for (let i = 0; i <= max; i++) {
+        if (!nums.includes(i)) {
+            return i;
+        }
+    }
+};
