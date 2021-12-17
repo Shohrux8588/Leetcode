@@ -45,3 +45,44 @@ var missingNumber = function(nums) {
         }
     }
 };
+
+
+392. Is Subsequence
+var isSubsequence = function(s, t) {
+    let start = 0,
+        index;
+    for (let letter of s) {
+        t = t.slice(start);
+        index = t.indexOf(letter);
+        if (index === -1) {
+            return false;
+        }
+        start = index + 1;
+    }
+    return true;
+};
+
+
+792. Number of Matching Subsequences
+var numMatchingSubseq = function(s, words) {
+    var isSubsequence = function(s, t) {
+        let start = 0,
+            index;
+        for (let letter of s) {
+            t = t.slice(start);
+            index = t.indexOf(letter);
+            if (index === -1) {
+                return false;
+            }
+            start = index + 1;
+        }
+        return true;
+    };
+    let matches = 0;
+    words.forEach(word => {
+        if(isSubsequence(word, s)){
+            matches++;
+        }
+    })
+    return matches;
+};
