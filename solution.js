@@ -86,3 +86,24 @@ var numMatchingSubseq = function(s, words) {
     })
     return matches;
 };
+
+
+345. Reverse Vowels of a String
+var reverseVowels = function(s) {
+    const regex = /[aeiou]/gi;
+    let vowelsArray = s.match(regex);
+    if(!vowelsArray){
+        return s;
+    }
+    vowelsArray = vowelsArray.reverse();
+    let vowel, str = "";
+    for (let letter of s) {
+        if (letter.match(regex)) {   
+            vowel = vowelsArray.shift();
+            str += vowel;
+        } else {
+            str += letter;
+        }
+    }
+    return str;
+};
