@@ -107,3 +107,14 @@ var reverseVowels = function(s) {
     }
     return str;
 };
+
+389. Find the Difference
+var findTheDifference = function(s, t) {
+    const sArr = s.split("").sort();
+    const tArr = t.split("").sort();
+    for (let i = 0; i < tArr.length; i++) {
+        if (tArr[i] !== sArr[i]) {
+            return tArr[i];
+        }
+    }
+};
