@@ -133,3 +133,14 @@ var isThree = function(n) {
     return false;
 
 };
+
+1979. Find Greatest Common Divisor of Array
+var findGCD = function(nums) {
+    const min = Math.min(...nums);
+    const max = Math.max(...nums);
+    for (let i = min; i > 0; i--) {
+        if (min % i === 0 && max % i === 0) {
+            return i;
+        }
+    }
+};
