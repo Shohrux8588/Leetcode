@@ -144,3 +144,23 @@ var findGCD = function(nums) {
         }
     }
 };
+
+1200. Minimum Absolute Difference
+var minimumAbsDifference = function(arr) {
+    let difference, minDifference = Infinity,
+        pairs = [];
+
+    const sortedArr = arr.sort((a, b) => a - b);
+
+    for (let i = 0; i < sortedArr.length - 1; i++) {
+        difference = Math.abs(sortedArr[i] - sortedArr[i + 1]);
+        if (minDifference > difference) {
+            minDifference = difference;
+            pairs = [];
+            pairs.push([sortedArr[i], sortedArr[i + 1]]);
+        } else if (minDifference === difference) {
+            pairs.push([sortedArr[i], sortedArr[i + 1]])
+        }
+    }
+    return pairs;
+};
