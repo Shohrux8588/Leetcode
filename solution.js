@@ -164,3 +164,28 @@ var minimumAbsDifference = function(arr) {
     }
     return pairs;
 };
+
+
+819. Most Common Word
+var mostCommonWord = function(paragraph, banned) {
+    const regex = /\w+/gi;
+    
+    const words = paragraph.match(regex).map(word => word.toLowerCase());
+    
+    let countWords = words.reduce((obj, word) => {
+        if (obj.hasOwnProperty(word)) {
+            obj[word]++;
+        } else {
+            obj[word] = 1;
+        }
+        return obj;
+    }, {});
+
+    const sortedPairs = Object.entries(countWords).sort((a, b) => b[1] - a[1]);
+
+    for (let i = 0; i < sortedPairs.length; i++) {
+        if (!banned.includes(sortedPairs[i][0])) {
+            return sortedPairs[i][0];
+        }
+    }
+};
