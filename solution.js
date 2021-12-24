@@ -166,7 +166,7 @@ var minimumAbsDifference = function(arr) {
 };
 
 
-819. Most Common Word
+// 819. Most Common Word
 var mostCommonWord = function(paragraph, banned) {
     const regex = /\w+/gi;
     
@@ -188,4 +188,73 @@ var mostCommonWord = function(paragraph, banned) {
             return sortedPairs[i][0];
         }
     }
+};
+
+
+// 485. Max Consecutive Ones
+var findMaxConsecutiveOnes = function(nums) {
+    let max = 0,
+        counter = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === 1) {
+            counter++
+        } else {
+            if (max < counter) {
+                max = counter;
+            }
+            counter = 0;
+        }
+    }
+    if (counter > max) {
+        max = counter;
+    }
+    return max;
+};
+
+// 1446. Consecutive Characters
+var maxPower = function(s) {
+    let max = 0,
+        counter = 1;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === s[i + 1]) {
+            counter++;
+        } else {
+            if (counter > max) {
+                max = counter;
+            }
+            counter = 1;
+        }
+    }
+    return max;
+};
+
+
+// 1869. Longer Contiguous Segments of Ones than Zeros
+var checkZeroOnes = function(s) {
+    let zeroMax = 0,
+        zeroCounter = 0,
+        oneMax = 0,
+        oneCounter = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] == 0) {
+            zeroCounter++
+            if (oneMax < oneCounter) {
+                oneMax = oneCounter;
+            }
+            oneCounter = 0;
+        } else {
+            oneCounter++;
+            if (zeroMax < zeroCounter) {
+                zeroMax = zeroCounter;
+            }
+            zeroCounter = 0;
+        }
+    }
+    if (oneMax < oneCounter) {
+        oneMax = oneCounter;
+    }
+    if (zeroMax < zeroCounter) {
+        zeroMax = zeroCounter;
+    }
+    return oneMax > zeroMax;
 };
