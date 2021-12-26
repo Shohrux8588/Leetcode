@@ -258,3 +258,39 @@ var checkZeroOnes = function(s) {
     }
     return oneMax > zeroMax;
 };
+
+
+// 2089. Find Target Indices After Sorting Array
+var targetIndices = function(nums, target) {
+    let listOfIndexes = [];
+    const sortedNums = nums.sort((a, b) => a - b);
+    sortedNums.forEach((num, index) => {
+        if (num === target) {
+            listOfIndexes.push(index);
+        }
+    })
+    return listOfIndexes;
+};
+
+
+// 1331. Rank Transform of an Array
+var arrayRankTransform = function(arr) {
+    const sortedArr = [...arr].sort((a, b) => a - b);
+    const uniqueSortedArr = [...new Set(sortedArr)];
+    const rankArr = arr.map(num => uniqueSortedArr.indexOf(num) + 1);
+    return rankArr;
+};
+
+
+// 2037. Minimum Number of Moves to Seat Everyone
+var minMovesToSeat = function(seats, students) {
+    let minimumNumberOfMoves = 0;
+    const sortedSeats = seats.sort((a, b) => a - b);
+    const sortedStudents = students.sort((a, b) => a - b);
+
+    sortedSeats.forEach((seat, index) => {
+        minimumNumberOfMoves += Math.abs(seat - sortedStudents[index]);
+    })
+
+    return minimumNumberOfMoves;
+};
