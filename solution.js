@@ -294,3 +294,14 @@ var minMovesToSeat = function(seats, students) {
 
     return minimumNumberOfMoves;
 };
+
+// 1732. Find the Highest Altitude
+var largestAltitude = function(gain) {
+    let altitudes = [0];
+    
+    for (let i = 0; i < gain.length; i++) {
+        altitudes[i + 1] = altitudes[i] + gain[i];
+    }
+    
+    return Math.max(...altitudes);
+};
