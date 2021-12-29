@@ -305,3 +305,15 @@ var largestAltitude = function(gain) {
     
     return Math.max(...altitudes);
 };
+
+// 2114. Maximum Number of Words Found in Sentences
+var mostWordsFound = function(sentences) {
+    let lengthOfSentence, maximumNumberOfWords = 0;
+    sentences.forEach(sentence => {
+        lengthOfSentence = sentence.split(" ").length;
+        if (maximumNumberOfWords < lengthOfSentence) {
+            maximumNumberOfWords = lengthOfSentence;
+        }
+    })
+    return maximumNumberOfWords;
+};
